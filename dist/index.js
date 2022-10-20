@@ -9698,6 +9698,7 @@ try {
       status: "success",
       branch: core.getInput("branch"),
       event: "push",
+      per_page: 10
     })
     .then((res) => {
       const successful_commits = res.data.workflow_runs.map(run => run.head_commit.id)
