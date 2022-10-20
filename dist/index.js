@@ -9709,7 +9709,7 @@ try {
         core.info(`A successful workflow run for commit ${core.getInput("commit_sha")} was found`)
       } else {
         core.info(`No successful workflow run for commit ${core.getInput("commit_sha")} was found`)
-        core.info(`Last successful_commits: ${JASON.stringify(successful_commits)}`)
+        core.info(`Last successful_commits: ${JSON.stringify(successful_commits)}`)
       }
 
       core.setOutput("has_already_ran", has_already_ran);
