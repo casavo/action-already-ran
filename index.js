@@ -12,7 +12,7 @@ try {
       status: "success",
       branch: core.getInput("branch"),
       event: "push",
-      per_page: 10
+      per_page: core.getInput("look_into_last_n_build")
     })
     .then((res) => {
       const successful_commits = res.data.workflow_runs.map(run => run.head_commit.id)
