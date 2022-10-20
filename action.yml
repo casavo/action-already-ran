@@ -1,0 +1,19 @@
+name: 'Already Ran'
+description: 'output true when a workflow for the same commit sha was already ran successful'
+inputs:
+  github_token:  # github token to use
+    description: 'Your GitHub access token'
+    required: true
+  workflow_id:  # ID or filename of the workflow
+    description: 'ID or filename of the workflow'
+    required: true
+  commit_sha:
+    description: "Full, 40-character SHA-1 hash of a commit"
+    default: "${{ github.sha }}"
+    required: true
+outputs:
+  already_ran:
+    description: 'true if a workflow for this commit sha has already successful ran'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
