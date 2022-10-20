@@ -14,8 +14,9 @@ try {
       event: "push",
     })
     .then((res) => {
-      // core.error(`Error ${JSON.stringify(res.data.workflow_runs)}, action may still succeed though`);
-      let xxx = JSON.stringify(res.data.workflow_runs).substring(0, 2048)
+      const successful_commits = res.data.workflow_runs(run => run.head_commit.id)
+
+      let xxx = JSON.stringify(successful_commits).substring(0, 2048)
       core.setFailed(`Error ${xxx}, action may still succeed though`);
 
       // const lastSuccessCommitHash =
