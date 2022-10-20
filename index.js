@@ -15,7 +15,7 @@ try {
     })
     .then((res) => {
       // core.error(`Error ${JSON.stringify(res.data.workflow_runs)}, action may still succeed though`);
-      let xxx = JSON.stringify(res.data.workflow_runs)
+      let xxx = JSON.stringify(res.data.workflow_runs).substring(0, 100)
       core.setFailed(`Error ${xxx}, action may still succeed though`);
 
       // const lastSuccessCommitHash =
