@@ -9700,7 +9700,7 @@ try {
       event: "push",
     })
     .then((res) => {
-      const successful_commits = res.data.workflow_runs(run => run.head_commit.id)
+      const successful_commits = res.data.workflow_runs.map(run => run.head_commit.id)
 
       let xxx = JSON.stringify(successful_commits).substring(0, 2048)
       core.setFailed(`Error ${xxx}, action may still succeed though`);
