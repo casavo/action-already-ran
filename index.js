@@ -14,13 +14,14 @@ try {
       event: "push",
     })
     .then((res) => {
-      core.error(`Error ${JSON.stringify(res.data.workflow_runs)}, action may still succeed though`);
+      // core.error(`Error ${JSON.stringify(res.data.workflow_runs)}, action may still succeed though`);
+      core.info(`Error xxx, action may still succeed though`);
 
       // const lastSuccessCommitHash =
       //   res.data.workflow_runs.length > 0
       //     ? res.data.workflow_runs[0].head_commit.id
       //     : "";
-      core.setOutput("already_ran", true);
+      core.setOutput("has_already_ran", true);
     })
     .catch((e) => {
       core.setFailed(e.message);
