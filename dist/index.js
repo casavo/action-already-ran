@@ -9690,7 +9690,7 @@ const github = __nccwpck_require__(4977);
 try {
   const octokit = github.getOctokit(core.getInput("github_token"));
   const [owner, repo] = process.env.GITHUB_REPOSITORY.split("/");
-  octokit.actions
+  octokit.rest.actions
     .listWorkflowRuns({
       owner,
       repo,
